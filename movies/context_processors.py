@@ -1,4 +1,4 @@
 menu = ['sci-fi', 'drama', 'comedy']
 
-def menu_list(request):
+def menu_movies(request):
     return {'menu_list': menu}
