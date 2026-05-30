@@ -12,7 +12,12 @@ def index(request):
     return render(request, 'movies/index.html', context={'movies': movies_db})
 
 def movie(request, movie_slug):
-    return render(request, 'movies/movie.html', context={'movies': movies_db, 'slug': movie_slug})
+    data_filter = next(item for item in movies_db if movie_slug == item.get('slug'))
+    data = {'get_movie':data_filter,
+            'movies': movies_db,
+            'slug': movie_slug
+            }
+    return render(request, 'movies/movie.html', context=data)
 
 def genre(request, genre_name):
     return render(request, 'movies/genre.html', context={'movies': movies_db, 'genre_name': genre_name})

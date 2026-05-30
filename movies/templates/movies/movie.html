@@ -1,3 +1,10 @@
 {% extends 'base.html' %}
-{% block title %}Описание фильма{% endblock title %}
-{% block title_h1 %}Описание фильма {% endblock title_h1 %}
+{% block title %}Фильм {{get_movie.title}}{% endblock title %}
+{% block title_h1 %}Фильм {{get_movie.title}}{% endblock title_h1 %}
+
+{% block content %}
+<p><h2>Описание:</h2> {{get_movie.desc}}</p>
+<p>Жанр: {{get_movie.genre}}</p>
+<p>Год выпуска: {{get_movie.year}}</p>
+
+{% endblock content %}
