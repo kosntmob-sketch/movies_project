@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}{% endblock title %}
+    </title>
 </head>
 <body>
-
+<h1>{% block title_h1 %}{% endblock title_h1 %}</h1>
+{% block content %}{% endblock content %}
+<footer>
+    <div>Сайт создан 2026</div>
+</footer>
 </body>
 </html>
