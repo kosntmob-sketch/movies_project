@@ -1,3 +1,14 @@
 {% extends 'base.html' %}
 {% block title %}Главная страница{% endblock title %}
 {% block title_h1 %}Главная страница{% endblock title_h1 %}
+{% block content %}
+<h2>Список фильмов</h2>
+<ul>
+    {% for m in movies %}
+        <li><a href="{% url 'movie_detail' m.slug %}">{{m.title}}</a>
+        <p>{{m.desc|truncatewords:3}}</p>
+            <hr>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
