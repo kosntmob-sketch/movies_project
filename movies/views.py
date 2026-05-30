@@ -16,5 +16,7 @@ def movie(request, movie_slug):
 def genre(request, genre_name):
     return render(request, 'movies/genre.html', context={'movies': movies_db, 'genre_name': genre_name})
 
-
+def years(request,year):
+    print(year)
+    return render(request, 'movies/year.html', context={'movies': movies_db})
 
