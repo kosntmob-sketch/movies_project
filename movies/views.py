@@ -10,3 +10,8 @@ movies_db = [
 def index(request):
     return render(request, 'movies/index.html', context={'movies': movies_db})
 
+def movie(request, movie_slug):
+    return render(request, 'movies/movie.html', context={'movies': movies_db, 'slug': movie_slug})
+
+
+
