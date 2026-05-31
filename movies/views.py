@@ -22,6 +22,7 @@ def movie(request, movie_slug):
     return render(request, 'movies/movie.html', context=data)
 
 def genre(request, genre_name):
+    #data_filter = [ m for m in movies_db if m.get(genre) == genre_name] по т3 передать отфилтрованный спискок
     return render(request, 'movies/genre.html', context={'movies': movies_db, 'genre_name': genre_name})
 
 def years(request,year):

@@ -2,10 +2,11 @@
 {% block title %}Фильтрация по жанру {{genre_name}}{% endblock title %}
 {% block title_h1 %}Фильтрация по жанру {{genre_name}}{% endblock title_h1 %}
 {% block content %}
-<ul> <li> Список фильмов</li>
+<h2>Список фильмов</h2>
+<ul>
 {% for m in movies %}
     {% if m.genre == genre_name %}
-    <li><a href="{% url 'movie_detail' m.slug %}">{{m.title}}</a>
+    <li><a href="{% url 'movie_detail' m.slug %}"><h2>{{m.title}}</h2></a>
         <p>{{m.desc|truncatewords:3}}</p>
             <hr></li>
     {% endif %}

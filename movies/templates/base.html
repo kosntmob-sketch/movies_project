@@ -1,21 +1,26 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link type="text/css" href="{% static 'movies/css/styles.css' %}" rel="stylesheet" />
     <title>{% block title %}{% endblock title %}
     </title>
 </head>
-<body>
-<header>
-    <ul>
+<body><table class="table-page" border=0 cellpadding="0" cellspacing="0">
+<tr><td valign=top>
+<div class="header">
+    <ul id="mainmenu" class="mainmenu">
         {% for item in menu_list %}
         <li><a href="{% url 'genre_filter' item%}">{{item}}</a></li>
         {% endfor %}
     </ul>
-</header>
+</div>
+
+
 <h1>{% block title_h1 %}{% endblock title_h1 %}</h1>
 {% block content %}{% endblock content %}
+
 <footer>
     <div>Сайт создан 2026</div>
 </footer>
