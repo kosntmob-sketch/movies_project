@@ -20,12 +20,19 @@ def movie(request, movie_slug):
     return render(request, 'movies/movie.html', context=data)
 
 def genre(request, genre_name):
-    #data_filter = [ m for m in movies_db if m.get(genre) == genre_name] по т3 передать отфилтрованный спискок
-    return render(request, 'movies/genre.html', context={'movies': movies_db, 'genre_name': genre_name})
+    # data_filter = [ m for m in movies_db if m.get(genre) == genre_name] по т3 передать отфилтрованный спискок
+    # для учебного проекта было сделано в через html
+    data = {'movies': movies_db,
+            'genre_name': genre_name}
+    return render(request, 'movies/genre.html', context= data)
 
+# мне кажется такая реализация фильтрации более правильная если нет year то пустая старница не выводится
+# в genre должна быть такая-же реализация как years
 def years(request,year):
-    print(year)
-    return render(request, 'movies/year.html', context={'movies': movies_db})
+    data_filter = [m for m in movies_db if m.get('year') == year]
+    if len(data_filter) == 0:
+        return redirect('home', permanent=True)
+    return render(request, 'movies/year.html', context={'movies': data_filter})
 
 def old_archive(request):
     return redirect('home', permanent=True)
