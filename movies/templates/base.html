@@ -10,7 +10,7 @@
 <header>
     <ul>
         {% for item in menu_list %}
-        <li>{{item}}</li>
+        <li><a href="{% url 'genre_filter' item%}">{{item}}</a></li>
         {% endfor %}
     </ul>
 </header>
