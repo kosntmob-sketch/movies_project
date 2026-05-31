@@ -1,5 +1,3 @@
-from tarfile import data_filter
-
 from django.shortcuts import render, redirect
 
 movies_db = [
@@ -31,3 +29,6 @@ def years(request,year):
 
 def old_archive(request):
     return redirect('home', permanent=True)
+
+def page_not_found(request, exception):
+    return render(request, 'movies/404.html', status=404)
