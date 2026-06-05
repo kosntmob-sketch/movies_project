@@ -28,13 +28,14 @@ def director_movies(request, director_id):
 
 
 
+
     return render(request, 'movies/genre.html', context={'movies': data_filter, 'director': director})
 
 
 def years(request, year):
-    #data_filter = get_object_or_404(Movie, year=year)
-    
     data_filter = Movie.objects.filter(year=year)
+    if not data_filter.exists():
+        raise Http404("Фильмы за этот год не найдены")
     return render(request, 'movies/year.html', context={'movies': data_filter})
 
 
