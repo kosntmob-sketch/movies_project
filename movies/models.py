@@ -3,6 +3,8 @@ from django.db import models
 class Director(models.Model):
 
     name = models.CharField(max_length=50, unique=True)
+    # Добавляем слаг для красивых URL
+    slug = models.SlugField(max_length=255, unique=True, null=True, blank=True, verbose_name='URL-слаг')
 
     class Meta:
         verbose_name = 'Режиссер'

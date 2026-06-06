@@ -12,7 +12,7 @@
 <div class="header">
     <ul id="mainmenu" class="mainmenu">
         {% for item in menu_list %}
-        <li><a href="{% url 'genre_filter' item%}">{{item}}</a></li>
+        <li><a href="{% url 'director_filter' item.1%}">{{item.0}}</a></li>
         {% endfor %}
     </ul>
 </div>

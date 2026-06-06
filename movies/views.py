@@ -22,8 +22,9 @@ def movie(request, movie_slug):
 
 
 def director_movies(request, director_id):
-    # Реализуем правильную фильтрацию на уровне Python, как вы и хотели!
-    director = get_object_or_404(Director, name=director_id)
+
+    director = get_object_or_404(Director, slug=director_id)
+    print(director_id)
     data_filter = director.movies.all()
 
 
